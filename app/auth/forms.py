@@ -6,11 +6,11 @@ from app.extensions import app, db, bcrypt
 
 class SignUpForm(FlaskForm):
     username = StringField('Username',
-            vaildators = [DataRequired(), Length(min=3, max=50)])
+            validators = [DataRequired(), Length(min=3, max=50)])
     password = StringField('Password', validators=[DataRequired()])
     name = StringField('Your name', validators = [DataRequired()])
-    plan = SelectField('Which plan would you like to use', choices=Plan.choices())
-    savings = FloatField('How much do you currently have saved', validators=[DataRequired()])
+    plan = SelectField('Which plan would you like to use?', choices=Plan.choices(), validators=[DataRequired()])
+    savings = FloatField('How much money do you currently have saved?', validators=[DataRequired()])
     submit = SubmitField('Start Saving!')
     
     def validate_username(self, username):

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Sign Up</h1>
+
+<form action="/signup" method="POST">
+    {{ form.csrf_token }}
+    <fieldset class="signup">
+        {{ form.username.label }}
+        {{ form.username }}
+        <ul>
+        {% for error in form.username.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+
+        {{ form.password.label }}
+        {{ form.password }}
+
+        <ul>
+        {% for error in form.password.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+
+        {{ form.name.label }}
+        {{ form.name }}
+
+        <ul>
+            {% for error in form.name.errors %}
+                <li class="error">{{ error }}</li>
+            {% endfor %}
+        </ul>
+
+        <img src="/static/images/explanation.png" alt="image"><br>
+
+        {{ form.plan.label }}
+        {{ form.plan }}
+
+        <ul>
+            {% for error in form.plan.errors %}
+                <li class="error">{{ error }}</li>
+            {% endfor %}
+        </ul>
+
+        {{ form.savings.label }}<br>
+        {{ form.savings }}
+
+        <ul>
+            {% for error in form.savings.errors %}
+                <li class="error">{{ error }}</li>
+            {% endfor %}
+        </ul>
+
+        {{ form.submit }}
+    </fieldset>
+</form>
+
+{% endblock %}

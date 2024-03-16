@@ -12,9 +12,13 @@ class PaycheckForm(FlaskForm):
     submit = SubmitField('Enter')
     
 class UpdatePlanForm(FlaskForm):
-    new_plan = SelectField('Select your new plan!', choices=Plan.choices())
+    new_plan = SelectField('Select your new plan!', choices=Plan.choices(), validators=[DataRequired()])
     submit = SubmitField('Update')
     
-class CateogryForm(FlaskForm):
+class CategoryForm(FlaskForm):
     title = StringField('Title of the category', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+    
+class AIForm(FlaskForm):
+    question = TextAreaField('Enter your question', validators=[DataRequired(), Length(min=1)])
     submit = SubmitField('Submit')

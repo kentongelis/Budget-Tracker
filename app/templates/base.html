@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
+    <body>
     <head>
         <title>Project Title</title>
         <link rel="stylesheet" href="/static/style.css">
     </head>
+    </body>
     <body>
-        <!-- Add base html here. -->
-        
-        {% block content %}{% endblock %}
+        <header><img src="/static/images/logo-removebg-preview.png" class="center" width="200" height="100"></header>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
     </body>
 </html>

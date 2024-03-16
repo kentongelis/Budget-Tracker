@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+{% if current_user.is_authenticated %}
+
+
+{% extends 'base.html' %}
+{% block content %}
+
+<form action-="/category" method="POST">
+    {{ form.csrf_token }}
+
+    {{ form.title.label }}
+    {{ form.title }}
+
+    <ul>
+        {% for error in form.title.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+    </ul>
+
+    {{ form.submit }}
+</form>
+
+{% endblock %}
+{% endif %}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+{% if current_user.is_authenticated %}∂
+
+{% extends 'base.html' %}
+{% block content %}
+
+<nav>
+    <a href="/budget">Budget</a>
+    <a href="/tips">Tips</a>
+    <a href="/logout">Logout</a>
+</nav>
+
+<h1>Budgeting Tips</h1>
+<h2>Here you can get tips from other people or AI</h2>
+
+<fieldset class="category">
+<h3>Click any of the categories below to see tips that other users gave on the topic</h3>
+<nav>
+        {% for cat in cats %}
+            <a href="/tips/{{ cat.id }}">{{ cat.title }}</a>
+        {% endfor %}
+</nav>
+</fieldset>
+
+<h2>Or...</h2>
+
+<fieldset class="fieldai">
+    <h3>Click the link below to ask a budgeting question to AI</h3>
+    <a href="/ai" id="ai">AI</a>
+</fieldset>
+
+
+
+{% endblock %}
+{% endif %}

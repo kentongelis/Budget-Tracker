@@ -13,7 +13,7 @@ class FormEnum(enum.Enum):
         return str(self.value)
     
 class Plan(FormEnum):
-    lenient = 'Lenient (30/60/10)'
+    lenient = 'Lenient (40/50/10)'
     normal = 'Normal (50/30/20)'
     extreme = 'Extreme (40/20/40)'
 
@@ -22,15 +22,15 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(80), nullable = False, unique=True)
     password = db.Column(db.String(200), nullable = False)
     name = db.Column(db.String(200), nullable=False)
-    plan = db.Coulmn(db.Emum(Plan))
+    plan = db.Column(db.Enum(Plan))
     savings = db.Column(db.Float(precision=2), nullable=False)
     paycheck = db.Column(db.Float(precision=2), nullable=True)
     posts = db.relationship('Post', back_populates='user', lazy=True)
     
 class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(80, nullable = False))
-    posts = db.relationship('Posts', back_populates='category', lazy=True)
+    title = db.Column(db.String(80), nullable = False)
+    posts = db.relationship('Post', back_populates='category', lazy=True)
     
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)

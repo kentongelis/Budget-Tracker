@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+{% if current_user.is_authenticated %}∂
+
+{% extends 'base.html' %}
+{% block content %}
+
+<nav>
+    <a href="/budget">Budget</a>
+    <a href="/tips">Tips</a>
+    <a href="/logout">Logout</a>
+</nav>
+
+<h1>Ask AI for tips here</h1>
+<fieldset class="aiform">
+<form action="/ai" method="post">
+    {{ form.csrf_token }}
+
+    {{ form.question.label }}<br>
+    {{ form.question }}
+
+    <ul>
+        {% for error in form.question.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+    </ul>
+
+    {{ form.submit }}
+</form>
+</fieldset>
+
+{% if result %}
+<fieldset class ="result">
+<div class="result">{{ result }}</div>
+</fieldset>
+{% endif %}
+
+{% endblock %}
+{% endif %}

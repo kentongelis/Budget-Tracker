@@ -1,1 +1,157 @@
-/* Add styles here. */
+body {
+    background-color: rgb(159, 164, 160);
+  }
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+  text-align: center
+}
+
+fieldset {
+        background-color:white; 
+        padding:30px; 
+        text-align:center; 
+        border-radius:15px; 
+        margin: auto;
+        border: 3px solid black;
+        
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+#start {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border: 3px solid black;
+    padding: 10px 20px;
+    font-size: 2.5em;
+}
+
+#ai {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 10px 10px;
+  font-size: 1.2em;
+}
+
+.start {
+    width: 400px; 
+    height: 115px;
+}
+
+.signup {
+  width: 400px; 
+  height: 450px;
+}
+
+.login {
+  width: 400px; 
+  height: 115px;
+}
+
+input#submit {
+  justify-content: center;
+  display: inline-block;
+  width: 200px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: rgb(159, 164, 160);
+  border: solid 1px transparent;
+  color: #060606;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+nav a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 10px 10px;
+  font-size: 1.2em;
+  background-color: rgb(255, 255, 255);
+}
+
+.plan {
+  width: 200px; 
+  height: 150px;
+
+}
+
+.amount {
+  width: 200px; 
+  height: 150px;
+}
+
+.row {
+  margin: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.paycheck {
+  width : 615px;
+  height : 150px;
+}
+
+.vertical {
+  border-left: 1px solid black;
+  height: 60px;
+}
+
+.category {
+  width : 900px;
+  height : 100px;
+}
+
+.fieldai {
+  width : 500px;
+  height : 100px;
+}
+
+textarea#data {
+  height:200px;
+  width: 500px;
+  resize: none;
+}
+
+.post {
+  width : 600px;
+  height : 280px;
+}
+
+.tips {
+  text-align: left;
+  width : 300px
+}
+
+textarea#question {
+  height:100px;
+  width: 300px;
+  resize: none;
+}
+
+.aiform {
+  width : 300px;
+}
+
+.result {
+  width : 800px
+}

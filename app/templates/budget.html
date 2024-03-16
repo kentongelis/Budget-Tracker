@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+{% if current_user.is_authenticated %}
+
+
+{% extends 'base.html' %}
+{% block content %}
+
+<nav>
+        <a href="/budget">Budget</a>
+        <a href="/tips">Tips</a>
+        <a href="/logout">Logout</a>
+</nav>
+
+<h1>Welcome {{ name }}</h1>
+
+
+<h2>Your Savings: {{ savings }}</h2>
+
+
+<fieldset class="paycheck">
+    {% if og == '0.0' %}
+    <h2>Last Paycheck: </h2>
+    <hr/>
+    <div class="row">
+    <p>Amount Saved: <br></p> 
+    <div class= "vertical"></div>
+    <p>Money for yourself: <br></p>
+    <div class= "vertical"></div>
+    <p>Money for your needs: <br></p>
+    </div>
+    <p>Amount Saved:  Money for yourself:  Money for your needs: </p>
+    {% else %}
+    <h2>Last Paycheck: <br>{{ paycheck }}</h2>
+    <hr/>
+    <div class="row">
+    <p>Amount Saved: <br>{{ saved }}</p> 
+    <div class= "vertical"></div>
+    <p>Money for yourself: <br>{{ self_money }} </p>
+    <div class= "vertical"></div>
+    <p>Money for your needs: <br>{{ needs }}</p>
+    </div>
+    {% endif %}
+
+</fieldset>
+
+<div class="row">
+<fieldset class="amount">
+    <form action="/budget" method="POST">
+    {{ form1.csrf_token }}
+
+    {{ form1.amount.label }}
+    {{ form1.amount}}
+
+    <ul>
+        {% for error in form1.amount.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+    </ul>
+
+    {{ form1.submit }}
+    </form>
+</fieldset>
+
+<fieldset class="plan">
+    <p>Your current plan is: {{ current_user.plan }}</p>
+    <form action="/budget" method="POST">
+        {{ form2.csrf_token }}
+
+        {{ form2.new_plan.label }}
+        {{ form2.new_plan }}
+
+        <ul>
+            {% for error in form2.new_plan.errors %}
+                <li class="error">{{ error }}</li>
+            {% endfor %}
+        </ul>
+
+        {{ form2.submit }}
+    </form>
+</fieldset>
+</div>
+
+{% endblock %}
+
+<p></p>
+
+{% endif %}
